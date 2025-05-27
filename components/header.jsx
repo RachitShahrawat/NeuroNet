@@ -1,7 +1,8 @@
 import { SignedIn, SignedOut, SignInButton, UserButton,SignUpButton } from "@clerk/nextjs";
 import Link from "next/link";
 import Image from "next/image";
-import {Button}  from "@/components/ui/button"; 
+import {Button}  from "@/components/ui/button";
+import { checkUser } from "@/lib/checkUser";
 import {
   PenBox,
   LayoutDashboard,
@@ -17,7 +18,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const Header=()=>{
+const Header= async ()=>{
+  await checkUser();
     return(
 
          <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
